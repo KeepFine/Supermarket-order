@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <typeAliases>
+        <package name="com.gxt.pojo"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="com/gxt/dao/BillMapper.xml"/>
+        <mapper resource="com/gxt/dao/ProviderMapper.xml"/>
+        <mapper resource="com/gxt/dao/RoleMapper.xml"/>
+        <mapper resource="com/gxt/dao/UserMapper.xml"/>
+    </mappers>
+
+</configuration>

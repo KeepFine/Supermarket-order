@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描service相关的bean -->
+    <context:component-scan base-package="com.gxt.service" />
+
+<!--    BookServiceImpl注入到IOC容器中-->
+    <bean id="BillServiceImpl" class="com.gxt.service.BillServiceImpl">
+        <property name="billMapper" ref="billMapper"/>
+    </bean>
+    <bean id="UserServiceImpl" class="com.gxt.service.UserServiceImpl">
+        <property name="userMapper" ref="userMapper"/>
+    </bean>
+    <bean id="RoleServiceImpl" class="com.gxt.service.RoleServiceImpl">
+        <property name="roleMapper" ref="roleMapper"/>
+    </bean>
+    <bean id="ProviderServiceImpl" class="com.gxt.service.ProviderServiceImpl">
+        <property name="providerMapper" ref="providerMapper"/>
+    </bean>
+
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 注入数据库连接池 -->
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+
+
+</beans>
