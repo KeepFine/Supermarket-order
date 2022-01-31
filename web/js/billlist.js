@@ -4,7 +4,7 @@ var billObj;
 function deleteBill(obj){
 	$.ajax({
 		type:"post",
-		url:path+"/Bill/delbill",
+		url:path+"/Bill/del",
 		data:{method:"delbill",billid:obj.attr("billid")},
 		dataType:"json",
 		success:function(data){
@@ -48,7 +48,7 @@ $(function(){
 	
 	$(".modifyBill").on("click",function(){
 		var obj = $(this);
-		window.location.href=path+"/jsp/bill.do?method=modify&billid="+ obj.attr("billid");
+		window.location.href=path+"/Bill/modify/{billid}";
 	});
 	$('#no').click(function () {
 		cancleBtn();

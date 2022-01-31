@@ -74,7 +74,7 @@
 					<td>
 					<span><a class="1" href="${pageContext.request.contextPath}/Bill/view/${bill.id}"><img src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>
 					<span><a class="modifyBill" href="${pageContext.request.contextPath}/Bill/modify/${bill.id}"><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>
-					<span><a class="remove" href="${pageContext.request.contextPath}/Bill/delbill/${bill.id}"><img src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
+					<span><a class="deleteBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
 					</td>
 				</tr>
 			</c:forEach>

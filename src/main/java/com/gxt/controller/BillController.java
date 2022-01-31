@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -129,5 +130,25 @@ public class BillController {
         bill.setModifyDate(new Date());
         billService.modify(bill);
         return "redirect:/Bill/toQueryBill";
+    }
+
+    @ResponseBody
+    @RequestMapping("/del")
+    public String del(Model model,String method,String billid) throws JsonProcessingException {
+        HashMap<String, String> resultMap = new HashMap<String, String>();
+        if(!StringUtils.isNullOrEmpty(billid)){
+            boolean flag = billService.deleteBillById(billid);
+            if(flag){//删除成功
+                resultMap.put("delResult", "true");
+            }else{//删除失败
+                resultMap.put("delResult", "false");
+            }
+        }else{
+            resultMap.put("delResult", "notexit");
+        }
+        //把resultMap转换成json对象输出
+        ObjectMapper mapper = new ObjectMapper();
+        String str = mapper.writeValueAsString(resultMap);
+        return str;
     }
 }
