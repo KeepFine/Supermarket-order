@@ -28,4 +28,21 @@
                 and u.userRole = #{userRole}
             </if>
     </select>
+
+    <insert id="add" parameterType="User" >
+        insert into smbms_user (userCode,userName,userPassword,userRole,gender,birthday,phone,address,creationDate,createdBy)
+        values(#{userCode},#{userName},#{userPassword},#{userRole},#{gender},#{birthday},#{phone},#{address},#{creationDate},#{createdBy})
+    </insert>
+    
+    <delete id="deleteUserById" parameterType="String">
+        delete from smbms_user where id=#{delId}
+    </delete>
+    
+    <select id="getUserById" resultType="User">
+        select u.*,r.roleName as userRoleName from smbms_user u,smbms_role r where u.id=#{id} and u.userRole = r.id
+    </select>
+    
+    <update id="modify" parameterType="User">
+        update smbms_user set userName=#{userName},gender=#{gender},birthday=#{birthday},phone=#{phone},address=#{address},userRole=#{userRole},modifyBy=#{modifyBy},modifyDate=#{modifyDate} where id = #{id}
+    </update>
 </mapper>

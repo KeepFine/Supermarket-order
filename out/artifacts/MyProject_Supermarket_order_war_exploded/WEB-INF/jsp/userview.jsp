@@ -26,4 +26,4 @@
     </div>
 </section>
 <%@include file="/WEB-INF/jsp/common/foot.jsp" %>
-<script type="text/javascript" src="${pageContext.request.contextPath }/WEB-INF/js/userview.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/userview.js"></script>

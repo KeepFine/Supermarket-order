@@ -8,7 +8,7 @@
             <span>用户管理页面 >> 用户添加页面</span>
         </div>
         <div class="providerAdd">
-            <form id="userForm" name="userForm" method="post" action="${pageContext.request.contextPath }/jsp/user.do">
+            <form id="userForm" name="userForm" method="post" action="${pageContext.request.contextPath }/User/addUser">
 				<input type="hidden" name="method" value="add">
                 <!--div的class 为error是验证错误，ok是验证成功-->
                 <div>
@@ -40,9 +40,9 @@
 					 </select>
                 </div>
                 <div>
-                    <label for="birthday">出生日期：</label>
-                    <input type="text" Class="Wdate" id="birthday" name="birthday" 
-					readonly="readonly" onclick="WdatePicker();">
+                    <label for="Tobirthday">出生日期：</label>
+                    <input type="text" id="Tobirthday" name="Tobirthday" value="请输入如：yyyy-MM-dd格式的日期">
+
 					<font color="red"></font>
                 </div>
                 <div>
@@ -69,4 +69,4 @@
 </div>
 </section>
 <%@include file="/WEB-INF/jsp/common/foot.jsp" %>
-<script type="text/javascript" src="${pageContext.request.contextPath }/WEB-INF/js/useradd.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/useradd.js"></script>

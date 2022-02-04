@@ -29,8 +29,8 @@ $(function(){
 	userRole.next().html("*");
 	
 	$.ajax({
-		type:"GET",//请求类型
-		url:path+"/jsp/user.do",//请求的url
+		type:"post",//请求类型
+		url:path+"/User/getrolelist",//请求的url
 		data:{method:"getrolelist"},//请求参数
 		dataType:"json",//ajax接口（请求url）返回的数据类型
 		success:function(data){//data：返回数据（json对象）
@@ -61,8 +61,8 @@ $(function(){
 		//ajax后台验证--userCode是否已存在
 		//user.do?method=ucexist&userCode=**
 		$.ajax({
-			type:"GET",//请求类型
-			url:path+"/jsp/user.do",//请求的url
+			type:"post",//请求类型
+			url:path+"/User/userCodeExist",//请求的url
 			data:{method:"ucexist",userCode:userCode.val()},//请求参数
 			dataType:"json",//ajax接口（请求url）返回的数据类型
 			success:function(data){//data：返回数据（json对象）
@@ -118,15 +118,15 @@ $(function(){
 	});
 	
 	
-	birthday.bind("focus",function(){
-		validateTip(birthday.next(),{"color":"#666666"},"* 点击输入框，选择日期",false);
-	}).bind("blur",function(){
-		if(birthday.val() != null && birthday.val() != ""){
-			validateTip(birthday.next(),{"color":"green"},imgYes,true);
-		}else{
-			validateTip(birthday.next(),{"color":"red"},imgNo + " 选择的日期不正确,请重新输入",false);
-		}
-	});
+	// birthday.bind("focus",function(){
+	// 	validateTip(birthday.next(),{"color":"#666666"},"* 点击输入框，选择日期",false);
+	// }).bind("blur",function(){
+	// 	if(birthday.val() != null && birthday.val() != ""){
+	// 		validateTip(birthday.next(),{"color":"green"},imgYes,true);
+	// 	}else{
+	// 		validateTip(birthday.next(),{"color":"red"},imgNo + " 选择的日期不正确,请重新输入",false);
+	// 	}
+	// });
 	
 	phone.bind("focus",function(){
 		validateTip(phone.next(),{"color":"#666666"},"* 请输入手机号",false);
@@ -158,7 +158,7 @@ $(function(){
 			userPassword.blur();
 		}else if(ruserPassword.attr("validateStatus") != "true"){
 			ruserPassword.blur();
-		}else if(birthday.attr("validateStatus") != "true"){
+		}else if(false){
 			birthday.blur();
 		}else if(phone.attr("validateStatus") != "true"){
 			phone.blur();

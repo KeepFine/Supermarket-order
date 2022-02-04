@@ -7,9 +7,9 @@
             <span>用户管理页面 >> 用户修改页面</span>
         </div>
         <div class="providerAdd">
-        <form id="userForm" name="userForm" method="post" action="${pageContext.request.contextPath }/jsp/user.do">
+        <form id="userForm" name="userForm" method="post" action="${pageContext.request.contextPath }/User/modifySave">
 			<input type="hidden" name="method" value="modifyexe">
-			<input type="hidden" name="uid" value="${user.id }"/>
+			<input type="hidden" name="id" value="${user.id }"/>
 			 <div>
                     <label for="userName">用户名称：</label>
                     <input type="text" name="userName" id="userName" value="${user.userName }"> 
@@ -32,8 +32,8 @@
              </div>
 			 <div>
                     <label for="data">出生日期：</label>
-                    <input type="text" Class="Wdate" id="birthday" name="birthday" value="${user.birthday }"
-					readonly="readonly" onclick="WdatePicker();">
+                    <input type="text" id="Tobirthday" name="Tobirthday" value="${birthday }"
+					>
                     <font color="red"></font>
               </div>
 			
@@ -62,4 +62,4 @@
     </div>
 </section>
 <%@include file="/WEB-INF/jsp/common/foot.jsp" %>
-<script type="text/javascript" src="${pageContext.request.contextPath }/WEB-INF/js/usermodify.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/usermodify.js"></script>

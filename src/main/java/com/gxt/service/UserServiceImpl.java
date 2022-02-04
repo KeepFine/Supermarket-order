@@ -20,7 +20,11 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean add(User user) {
-        return false;
+        if(userMapper.add(user)!=0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
@@ -46,22 +50,32 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User selectUserCodeExist(String userCode) {
-        return null;
+        User user = null;
+        user = userMapper.getLoginUser(userCode);
+        return user;
     }
 
     @Override
-    public boolean deleteUserById(Integer delId) {
-        return false;
+    public boolean deleteUserById(String delId) {
+        if (userMapper.deleteUserById(delId)!=0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
     public User getUserById(String id) {
-        return null;
+        return userMapper.getUserById(id);
     }
 
     @Override
     public boolean modify(User user) {
-        return false;
+        if(userMapper.modify(user)!=0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override

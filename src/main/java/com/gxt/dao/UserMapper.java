@@ -18,7 +18,7 @@ public interface UserMapper {
 
 	int getUserCount(@Param("userName") String userName, @Param("userRole") int userRole);
 
-	int deleteUserById(Integer delId);
+	int deleteUserById(String delId);
 
 	User getUserById(String id) ;
 

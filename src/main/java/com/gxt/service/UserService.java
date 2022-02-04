@@ -18,7 +18,7 @@ public interface UserService {
 
 	User selectUserCodeExist(String userCode);
 
-	boolean deleteUserById(Integer delId);
+	boolean deleteUserById(String delId);
 
 	User getUserById(String id);
 
