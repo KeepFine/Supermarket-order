@@ -18,4 +18,8 @@ public class text1 {
         User user = userMapper.getLoginUser("admin");
         System.out.println(user.toString());
     }
+
+
+    //and productName like "%"?"%"
+    //WHERE proCode = like "%"?"%"
 }

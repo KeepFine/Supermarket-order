@@ -12,19 +12,19 @@
         select * from smbms_provider
         <where>
             <if test="proName!= null">
-                and proName = #{proName}
+                and proName like "%"#{proName}"%"
             </if>
             <if test="proCode!=null">
-                and proCode = #{proCode}
+                and proCode like "%"#{proCode}"%"
             </if>
         </where>
     </select>
     
-    <delete id="deleteProviderById" parameterType="int" >
+    <delete id="deleteProviderById" parameterType="String" >
         delete from smbms_provider where id=#{delId}
     </delete>
 
-    <select id="getProviderById" parameterType="int" resultType="Provider">
+    <select id="getProviderById" parameterType="String" resultType="Provider">
         select * from smbms_provider where id=#{id}
     </select>
 

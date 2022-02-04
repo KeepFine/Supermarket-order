@@ -7,10 +7,10 @@
                 <span>用户管理页面</span>
             </div>
             <div class="search">
-           		<form method="get" action="${pageContext.request.contextPath }/jsp/user.do">
+           		<form method="post" action="${pageContext.request.contextPath }/User/query">
 					<input name="method" value="query" class="input-text" type="hidden">
 					 <span>用户名：</span>
-					 <input name="queryname" class="input-text"	type="text" value="${queryUserName }">
+					 <input name="queryUserName"	type="text" value="${queryUserName }">
 					 
 					 <span>用户角色：</span>
 					 <select name="queryUserRole">
@@ -63,9 +63,9 @@
 							<span>${user.userRoleName}</span>
 						</td>
 						<td>
-						<span><a class="viewUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/WEB-INF/images/read.png" alt="查看" title="查看"/></a></span>
-						<span><a class="modifyUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/WEB-INF/images/xiugai.png" alt="修改" title="修改"/></a></span>
-						<span><a class="deleteUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/WEB-INF/images/schu.png" alt="删除" title="删除"/></a></span>
+						<span><a class="viewUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>
+						<span><a class="modifyUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>
+						<span><a class="deleteUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
 						</td>
 					</tr>
 				</c:forEach>
@@ -93,4 +93,4 @@
 </div>
 
 <%@include file="/WEB-INF/jsp/common/foot.jsp" %>
-<script type="text/javascript" src="${pageContext.request.contextPath }/WEB-INF/js/userlist.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/userlist.js"></script>

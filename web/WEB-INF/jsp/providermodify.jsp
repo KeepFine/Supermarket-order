@@ -8,8 +8,9 @@
           <span>供应商管理页面 >> 供应商修改页</span>
       </div>
       <div class="providerAdd">
-          <form id="providerForm" name="providerForm" method="post" action="${pageContext.request.contextPath }/jsp/provider.do">
+          <form id="providerForm" name="providerForm" method="post" action="${pageContext.request.contextPath }/Provider/modifySave">
               <!--div的class 为error是验证错误，ok是验证成功-->
+              <input type="hidden" name="id" value="${provider.id }">
               <div class="">
                   <label for="proCode">供应商编码：</label>
                   <input type="text" name="proCode" id="proCode" value="${provider.proCode }" readonly="readonly"> 
@@ -55,4 +56,4 @@
   </div>
 </section>
 <%@include file="/WEB-INF/jsp/common/foot.jsp" %>
-<script type="text/javascript" src="${pageContext.request.contextPath }/WEB-INF/js/providermodify.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath }/js/providermodify.js"></script>

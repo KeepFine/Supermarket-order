@@ -36,12 +36,12 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> getUserList(String queryUserName, int queryUserRole, int currentPageNo, int pageSize) {
-        return null;
+        return userMapper.getUserList(queryUserName,queryUserRole,currentPageNo,pageSize);
     }
 
     @Override
     public int getUserCount(String queryUserName, int queryUserRole) {
-        return 0;
+        return userMapper.getUserCount(queryUserName,queryUserRole);
     }
 
     @Override

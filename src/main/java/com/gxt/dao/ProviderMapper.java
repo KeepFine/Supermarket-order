@@ -16,7 +16,7 @@ public interface ProviderMapper {
 
 	int deleteProviderById(String delId);
 
-	Provider getProviderById(String id);
+	Provider getProviderById(@Param("id") String id);
 
 	int modify(Provider provider);
 

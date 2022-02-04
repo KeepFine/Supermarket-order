@@ -8,7 +8,7 @@
             <span>供应商管理页面 >> 供应商添加页面</span>
         </div>
         <div class="providerAdd">
-           <form id="providerForm" name="providerForm" method="post" action="${pageContext.request.contextPath }/jsp/provider.do">
+           <form id="providerForm" name="providerForm" method="post" action="${pageContext.request.contextPath }/Provider/addProvider">
 			<input type="hidden" name="method" value="add">
                 <!--div的class 为error是验证错误，ok是验证成功-->
                 <div class="">
@@ -54,4 +54,4 @@
 </div>
 </section>
 <%@include file="/WEB-INF/jsp/common/foot.jsp" %>
-<script type="text/javascript" src="${pageContext.request.contextPath }/WEB-INF/js/provideradd.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/provideradd.js"></script>

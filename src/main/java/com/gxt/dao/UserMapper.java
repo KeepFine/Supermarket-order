@@ -3,6 +3,7 @@ package com.gxt.dao;
 
 
 import com.gxt.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.sql.Connection;
 import java.util.List;
@@ -13,9 +14,9 @@ public interface UserMapper {
 
 	User getLoginUser(String userCode);
 
-	List<User> getUserList(String userName, int userRole, int currentPageNo, int pageSize);
+	List<User> getUserList(@Param("userName") String userName, @Param("userRole") int userRole, @Param("currentPageNo") int currentPageNo, @Param("pageSize") int pageSize);
 
-	int getUserCount(String userName, int userRole);
+	int getUserCount(@Param("userName") String userName, @Param("userRole") int userRole);
 
 	int deleteUserById(Integer delId);
 
