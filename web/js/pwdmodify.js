@@ -15,8 +15,8 @@ $(function(){
 	
 	oldpassword.on("blur",function(){
 		$.ajax({
-			type:"GET",
-			url:path+"/jsp/user.do",
+			type:"post",
+			url:path+"/User/pwdmodify",
 			data:{method:"pwdmodify",oldpassword:oldpassword.val()},
 			dataType:"json",
 			success:function(data){

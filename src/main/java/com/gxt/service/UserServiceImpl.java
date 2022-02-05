@@ -80,6 +80,10 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean updatePwd(int id, String pwd) {
-        return false;
+        if(userMapper.updatePwd(id,pwd)!=0){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

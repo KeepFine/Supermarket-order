@@ -20,11 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/User")
@@ -200,6 +202,52 @@ public class UserController {
         }else {
             return "error";
         }
+    }
 
+    @RequestMapping("/toPwdmodify")
+    public String toPwdmodify(){
+        return "pwdmodify";
+    }
+
+    @ResponseBody
+    @RequestMapping("/pwdmodify")
+    public String pwdmodify(HttpSession session,Model model,String method,String oldpassword) throws JsonProcessingException {
+        Object o = session.getAttribute(Constants.USER_SESSION);
+        Map<String, String> resultMap = new HashMap<String, String>();
+        if(null == o ){//session过期
+            resultMap.put("result", "sessionerror");
+        }else if(StringUtils.isNullOrEmpty(oldpassword)){//旧密码输入为空
+            resultMap.put("result", "error");
+        }else{
+            String sessionPwd = ((User)o).getUserPassword();
+            if(oldpassword.equals(sessionPwd)){
+                resultMap.put("result", "true");
+            }else{//旧密码输入不正确
+                resultMap.put("result", "false");
+            }
+        }
+        ObjectMapper mapper = new ObjectMapper();
+        String str = mapper.writeValueAsString(resultMap);
+        return str;
+    }
+
+    @RequestMapping("/savepwd")
+    public String savepwd(HttpSession session,Model model,String newpassword){
+        Object o = session.getAttribute(Constants.USER_SESSION);
+        boolean flag = false;
+        if(o != null && !StringUtils.isNullOrEmpty(newpassword)){
+            flag = userService.updatePwd(((User)o).getId(),newpassword);
+            System.out.println(flag);
+            System.out.println(newpassword);
+            if(flag){
+                model.addAttribute(Constants.SYS_MESSAGE, "修改密码成功,请退出并使用新密码重新登录！");
+                session.removeAttribute(Constants.USER_SESSION);//session注销
+            }else{
+                model.addAttribute(Constants.SYS_MESSAGE, "修改密码失败！");
+            }
+        }else{
+            model.addAttribute(Constants.SYS_MESSAGE, "修改密码失败！");
+        }
+        return "pwdmodify";
     }
 }

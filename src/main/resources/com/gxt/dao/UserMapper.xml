@@ -45,4 +45,8 @@
     <update id="modify" parameterType="User">
         update smbms_user set userName=#{userName},gender=#{gender},birthday=#{birthday},phone=#{phone},address=#{address},userRole=#{userRole},modifyBy=#{modifyBy},modifyDate=#{modifyDate} where id = #{id}
     </update>
+
+    <update id="updatePwd">
+        update smbms_user set userPassword= #{pwd} where id = #{id}
+    </update>
 </mapper>

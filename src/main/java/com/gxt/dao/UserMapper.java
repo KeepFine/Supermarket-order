@@ -24,7 +24,7 @@ public interface UserMapper {
 
 	int modify(User user) ;
 
-	int updatePwd(int id, String pwd) ;
+	int updatePwd(@Param("id") int id, @Param("pwd") String pwd) ;
 	
 	
 }
