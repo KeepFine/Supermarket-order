@@ -23,7 +23,6 @@ public class loginController  {
     @RequestMapping("/in")
     public String login(HttpSession session,Model model, String userCode, String userPassword){
         User user = userService.login(userCode,userPassword);
-        System.out.println("=================================");
         if(user!=null){
             session.setAttribute("userSession",user);
             return "frame";
@@ -35,6 +34,11 @@ public class loginController  {
     @RequestMapping("/logout")
     public  String logout(HttpSession session){
         session.removeAttribute("userSession");
+        return "login";
+    }
+
+    @RequestMapping("/toLogin")
+    public String toLogin(){
         return "login";
     }
 }

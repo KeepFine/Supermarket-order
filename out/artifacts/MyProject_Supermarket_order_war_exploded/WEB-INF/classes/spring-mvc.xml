@@ -25,6 +25,13 @@
 
     <!-- 4.扫描web相关的bean -->
     <context:component-scan base-package="com.gxt.controller" />
+    
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id="loginInterceptor" class="com.gxt.Interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
     <mvc:annotation-driven>

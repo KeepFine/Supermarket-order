@@ -49,7 +49,6 @@ public class BillController {
     public String toQueryBill(Model model){
         List<Provider> providerList = providerService.getProviderList(null,null);
         model.addAttribute("providerList",providerList);
-
         Bill bill = new Bill();
         List<Bill> billList = billService.getBillList(bill);
         model.addAttribute("billList",billList);
@@ -87,7 +86,6 @@ public class BillController {
     public String getProviderlist() throws JsonProcessingException {
         List<Provider> getProviderlist = providerService.getProviderList(null,null);
         ObjectMapper mapper = new ObjectMapper();
-
         String str = mapper.writeValueAsString(getProviderlist);
         return str;
     }

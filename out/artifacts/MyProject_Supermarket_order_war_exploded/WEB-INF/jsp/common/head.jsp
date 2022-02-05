@@ -32,8 +32,8 @@
                 <li ><a href="${pageContext.request.contextPath }/Bill/toQueryBill">订单管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/Provider/query">供应商管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/User/query">用户管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/WEB-INF/jsp/pwdmodify.jsp">密码修改</a></li>
-                <li><a href="${pageContext.request.contextPath }/jsp/logout.do">退出系统</a></li>
+                <li><a href="${pageContext.request.contextPath }/User/toPwdmodify">密码修改</a></li>
+                <li><a href="${pageContext.request.contextPath }/login/logout">退出系统</a></li>
             </ul>
         </nav>
     </div>

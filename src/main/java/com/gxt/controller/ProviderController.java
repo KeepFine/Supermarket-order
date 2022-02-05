@@ -72,7 +72,6 @@ public class ProviderController {
     public String modifySave(HttpSession session,Provider provider){
         provider.setModifyBy(((User)session.getAttribute("userSession")).getId());
         provider.setModifyDate(new Date());
-        System.out.println(provider);
         if(providerService.modify(provider)){
             return "redirect:/Provider/query";
         }
@@ -85,8 +84,6 @@ public class ProviderController {
         HashMap<String, String> resultMap = new HashMap<String, String>();
         if(!StringUtils.isNullOrEmpty(proid)){
             int flag = providerService.deleteProviderById(proid);
-            System.out.println(flag);
-            System.out.println("=================================");
             if(flag!=0){//删除成功
                 resultMap.put("delResult", "true");
             }else{//删除失败

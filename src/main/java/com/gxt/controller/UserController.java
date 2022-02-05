@@ -237,8 +237,6 @@ public class UserController {
         boolean flag = false;
         if(o != null && !StringUtils.isNullOrEmpty(newpassword)){
             flag = userService.updatePwd(((User)o).getId(),newpassword);
-            System.out.println(flag);
-            System.out.println(newpassword);
             if(flag){
                 model.addAttribute(Constants.SYS_MESSAGE, "修改密码成功,请退出并使用新密码重新登录！");
                 session.removeAttribute(Constants.USER_SESSION);//session注销
